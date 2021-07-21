@@ -15,8 +15,8 @@ class SignatureController extends Controller
         return view('signature.create');
     }
     public function store(Request $request){
-        $request->validate(['name'=>'required'],
-                            ['signature'=>'required']);
+        $request->validate(['name'=>'required',
+                            'signed'=>'required']);
 
         $folderPath = public_path('upload/');
         $image_parts = explode(";base64,", $request->signed);
